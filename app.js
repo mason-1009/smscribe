@@ -4,9 +4,6 @@ const express = require('express');
 const port = process.env.PORT || 3000;
 const app = express();
 
-// Use JSON middleware
-app.use(express.json());
-
 app.get('/', (req, res) => {
   res.send({message: 'testing, testing, 1.. 2.. 3...'});
 });
