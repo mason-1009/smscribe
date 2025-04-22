@@ -16,6 +16,6 @@ app.post('/webhooks/sms', (req, res) => {
   res.send({})
 });
 
-app.listen(PORT, (err) => {
-  console.log(`Listening for connections on PORT ${PORT}`)
+app.listen(port, (err) => {
+  console.log(`Listening for connections on PORT ${port}`)
 });
