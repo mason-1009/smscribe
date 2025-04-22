@@ -1,0 +1,21 @@
+{
+  "name": "smscribe",
+  "version": "1.0.0",
+  "description": " Quick SMS-based, webhook-driven web app that receives and saves little tidbits sent from my phone.",
+  "homepage": "https://github.com/mason-1009/smscribe#readme",
+  "bugs": {
+    "url": "https://github.com/mason-1009/smscribe/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mason-1009/smscribe.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "mason-1009",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {},
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
