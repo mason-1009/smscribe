@@ -1,4 +1,5 @@
 const express = require('express');
+const { pgPool } = require('./src/db.js');
 
 // Setup app
 const port = process.env.PORT || 3000;
@@ -15,8 +16,16 @@ apiRouter.get('/', (req, res) => {
   res.send({message: 'testing, testing, 1.. 2.. 3...'});
 });
 
-twilioRouter.post('/sms', (req, res) => {
+twilioRouter.post('/sms', async (req, res) => {
   console.log(`Received ${JSON.stringify(req.body)}`)
+
+  // Insert into the DB
+  const now = new Date();
+  await pgPool.query(
+    `INSERT INTO TextMessages(received_at, from_number, to_number, body)
+      VALUES($1, $2, $3, $4) RETURNING *`,
+    [now, req.body.From, req.body.To, req.body.Body]);
+
   res.send({})
 });
 
