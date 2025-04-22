@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/webhooks/sms', (req, res) => {
-  console.log(`Received ${JSON.stringify(req.body)}`)
+  console.log(`Received ${req.body}`)
   res.send({})
 });
 
