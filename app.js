@@ -4,14 +4,24 @@ const express = require('express');
 const port = process.env.PORT || 3000;
 const app = express();
 
-app.get('/', (req, res) => {
+// Create separate routers for Twilio and JSON-enabled APIs
+const apiRouter = express.Router();
+const twilioRouter = express.Router();
+
+apiRouter.use(express.json());
+
+apiRouter.get('/', (req, res) => {
   res.send({message: 'testing, testing, 1.. 2.. 3...'});
 });
 
-app.post('/webhooks/sms', (req, res) => {
+twilioRouter.post('/sms', (req, res) => {
   console.log(`Received ${req.body}`)
   res.send({})
 });
+
+// Attach routers to application
+app.use('/api', apiRouter);
+app.use('/twilio', twilioRouter);
 
 app.listen(port, (err) => {
   console.log(`Listening for connections on PORT ${port}`)
