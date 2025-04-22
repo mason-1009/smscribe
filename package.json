@@ -14,7 +14,9 @@
   "author": "mason-1009",
   "type": "commonjs",
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "express": "^5.1.0"
   }
