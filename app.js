@@ -9,13 +9,14 @@ const apiRouter = express.Router();
 const twilioRouter = express.Router();
 
 apiRouter.use(express.json());
+twilioRouter.use(express.urlencoded());
 
 apiRouter.get('/', (req, res) => {
   res.send({message: 'testing, testing, 1.. 2.. 3...'});
 });
 
 twilioRouter.post('/sms', (req, res) => {
-  console.log(`Received ${req.body}`)
+  console.log(`Received ${JSON.stringify(req.body)}`)
   res.send({})
 });
 
